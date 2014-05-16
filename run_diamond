@@ -3,7 +3,7 @@
 HOST=$1
 PORT=$2
 
-sed -i "s/graphite/${HOST}/g" /diamond/handlers/GraphiteHandler.conf 
-sed -i "s/2003/${PORT}/g" /diamond/handlers/GraphiteHandler.conf 
+sed -i "s/graphite_host/${HOST}/g" /diamond/handlers/GraphiteHandler.conf 
+sed -i "s/graphite_port/${PORT}/g" /diamond/handlers/GraphiteHandler.conf 
 
 diamond -c /diamond/diamond.conf -f -l
