@@ -1,9 +1,11 @@
-#!/bin/sh
+#!/bin/sh -e
 
 HOST=$1
 PORT=$2
 
-sed -i "s/graphite_host/${HOST}/g" /diamond/handlers/GraphiteHandler.conf 
-sed -i "s/graphite_port/${PORT}/g" /diamond/handlers/GraphiteHandler.conf 
+echo "Graphite Host ${HOST}:${PORT}"
+
+sed -i -e "s/graphite_host/${HOST}/g" /diamond/handlers/GraphiteHandler.conf 
+sed -i -e "s/graphite_port/${PORT}/g" /diamond/handlers/GraphiteHandler.conf 
 
 diamond -c /diamond/diamond.conf -f -l
