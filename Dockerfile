@@ -16,7 +16,7 @@ RUN /bin/echo -e "LANG=\"ja_JP.UTF-8\"" > /etc/default/local \
  && echo "Asia/Tokyo" > /etc/timezone \
  && dpkg-reconfigure -f noninteractive tzdata
 
-RUN pip install git+https://github.com/BrightcoveOS/Diamond.git psutil
+RUN pip install git+https://github.com/BrightcoveOS/Diamond.git psutil docker-py
 RUN mkdir -p /diamond/storage
 ADD ./conf /diamond/
 ADD ./run_diamond /diamond/
